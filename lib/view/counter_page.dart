@@ -7,7 +7,7 @@ class CounterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counterNotifier = ref.watch(counterNotifierProvider);
+    final count = ref.watch(counterNotifierProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +16,7 @@ class CounterPage extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('${counterNotifier.value}'),
+          Text('$count'),
           const SizedBox(
             height: 100,
           ),
