@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_counter_app/view/counter_page.dart';
 
 void main() {
-  ///MyAppをProviderScopeでラップすることで、Providerを使用できるようにする（どこからでも参照できるよっておまじない。）
   runApp(const ProviderScope(
     child: MyApp(),
   ));
