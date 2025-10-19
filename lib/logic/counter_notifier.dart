@@ -1,20 +1,32 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_counter_app/model/counter.dart';
 
-final counterNotifierProvider = NotifierProvider<CounterNotifier, int>(() {
+final counterNotifierProvider = NotifierProvider<CounterNotifier, Counter>(() {
   return CounterNotifier();
 });
 
-class CounterNotifier extends Notifier<int> {
+class CounterNotifier extends Notifier<Counter> {
   @override
-  int build() {
-    return 0;
+  Counter build() {
+    return const Counter(
+      firstValue: 0,
+      secondValue: 0,
+    );
   }
 
-  void increment() {
-    state++;
+  void incrementFirstValue() {
+    state = state.copyWith(firstValue: state.firstValue + 1);
   }
 
-  void decrement() {
-    state--;
+  void incrementSecondValue() {
+    state = state.copyWith(secondValue: state.secondValue + 1);
+  }
+
+  void decrementFirstValue() {
+    state = state.copyWith(firstValue: state.firstValue - 1);
+  }
+
+  void decrementSecondValue() {
+    state = state.copyWith(secondValue: state.secondValue - 1);
   }
 }
