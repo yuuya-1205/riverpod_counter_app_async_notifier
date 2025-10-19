@@ -16,7 +16,8 @@ class CounterPage extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('$count'),
+          Text('First Value: ${count.firstValue}'),
+          Text('Second Value:${count.secondValue}'),
           const SizedBox(
             height: 100,
           ),
@@ -25,16 +26,38 @@ class CounterPage extends ConsumerWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  ref.read(counterNotifierProvider.notifier).increment();
+                  ref
+                      .read(counterNotifierProvider.notifier)
+                      .incrementFirstValue();
                 },
-                child: const Text('Increment'),
+                child: const Text('Increment First Value'),
               ),
               const SizedBox(width: 40),
               ElevatedButton(
                 onPressed: () {
-                  ref.read(counterNotifierProvider.notifier).decrement();
+                  ref
+                      .read(counterNotifierProvider.notifier)
+                      .decrementFirstValue();
                 },
-                child: const Text('Decrement'),
+                child: const Text('Decrement First Value'),
+              ),
+              const SizedBox(width: 40),
+              ElevatedButton(
+                onPressed: () {
+                  ref
+                      .read(counterNotifierProvider.notifier)
+                      .incrementSecondValue();
+                },
+                child: const Text('Increment Second Value'),
+              ),
+              const SizedBox(width: 40),
+              ElevatedButton(
+                onPressed: () {
+                  ref
+                      .read(counterNotifierProvider.notifier)
+                      .decrementSecondValue();
+                },
+                child: const Text('Decrement Second Value'),
               ),
             ],
           ),
